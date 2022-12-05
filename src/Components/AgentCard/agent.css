@@ -1,0 +1,77 @@
+.agent-button {
+  opacity: 0.7;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  padding: 8px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  padding: 2px 2px 2px 2px;
+}
+
+.agent-button.selected {
+  opacity: 1;
+  border-color: #f1fdc5;
+}
+
+.agent-button:hover {
+  opacity: 1;
+  background-color: transparent;
+  outline: none;
+}
+
+.agent-button:focus {
+  background-color: transparent;
+  outline: none;
+}
+
+.agent-button .agent-button-image-wrapper {
+  width: 92px;
+  height: 92px;
+  padding: 2px;
+  border: 2px solid #90d8bd;
+  position: relative;
+  background-color: rgba(108, 106, 110, 0.7);
+}
+
+.agent-button .agent-button-image-wrapper > img {
+  width: 92px;
+  height: 92px;
+}
+
+.agent-button .agent-button-image-wrapper .agent-button-image-wrapper-dot {
+  width: 2px;
+  height: 2px;
+  background-color: #8fdac3;
+  position: absolute;
+}
+
+.agent-button
+  .agent-button-image-wrapper
+  .agent-button-image-wrapper-dot.top-left {
+  top: 2px;
+  left: 2px;
+}
+
+.agent-button
+  .agent-button-image-wrapper
+  .agent-button-image-wrapper-dot.top-right {
+  top: 2px;
+  right: 2px;
+}
+
+.agent-button
+  .agent-button-image-wrapper
+  .agent-button-image-wrapper-dot.bottom-left {
+  bottom: 2px;
+  left: 2px;
+}
+
+.agent-button
+  .agent-button-image-wrapper
+  .agent-button-image-wrapper-dot.bottom-right {
+  bottom: 2px;
+  right: 2px;
+}
