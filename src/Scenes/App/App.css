@@ -11,3 +11,12 @@
   width: 100%;
   height: 100%;
 }
+
+.agent-list-container {
+  position: absolute;
+  width: 80%;
+  height: 108px;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
