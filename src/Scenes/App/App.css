@@ -1,3 +1,17 @@
+@media (max-width: 768px) {
+  .main-container {
+    background: transparent !important;
+  }
+
+  .main-container::after {
+    content: "Mobile not supported";
+  }
+
+  .main-container * {
+    display: none;
+  }
+}
+
 .agents-page-wrapper {
   position: relative;
   width: 100%;
@@ -21,4 +35,15 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
+}
+
+.link-button {
+  font-size: inherit;
+  font-family: inherit;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
 }

@@ -3,6 +3,7 @@ import AgentInfo from "../../Components/AgentInfo";
 import { TAgent } from "../../Components/AgentInfo/types";
 import AgentList from "../../Components/AgentList";
 import { getAgents, orderAgents } from "../../Components/AgentList/actions";
+import PageInfo from "../../Components/PageInfo";
 import { calculateGradient } from "./actions";
 
 import "./App.css";
@@ -49,6 +50,7 @@ const App = () => {
           />
         </div>
       </div>
+      <PageInfo selectedAgent={selectedAgent} />
     </main>
   );
 };
