@@ -36,6 +36,10 @@
   background-color: rgba(108, 106, 110, 0.7);
 }
 
+.agent-button.selected .agent-button-image-wrapper {
+  background-color: rgba(108, 106, 110, 0.9);
+}
+
 .agent-button .agent-button-image-wrapper > img {
   width: 92px;
   height: 92px;

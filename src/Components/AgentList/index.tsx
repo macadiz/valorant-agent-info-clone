@@ -1,6 +1,7 @@
 import { FC, useRef, useState, useEffect } from "react";
 import AgentCard from "../AgentCard";
-import { calculateMaxAgents } from "./actions";
+import { TAgent } from "../AgentInfo/types";
+import { calculateMaxAgents, calculateShowingAgentsList } from "./actions";
 
 import "./agentsList.css";
 import { AgentListProps } from "./types";
@@ -11,6 +12,9 @@ const AgentList: FC<AgentListProps> = ({
   onSelectAgent,
 }) => {
   const [maxNumberOfAgents, setMaxNumberOfAgents] = useState(0);
+
+  const [displayAgentsList, setDisplayAgentsList] = useState<TAgent[]>([]);
+
   const agentsListRef = useRef<null | HTMLDivElement>(null);
 
   useEffect(() => {
@@ -19,15 +23,21 @@ const AgentList: FC<AgentListProps> = ({
 
       const calculatedMaxAgents = calculateMaxAgents(containerSize ?? 0);
 
-      console.log(containerSize, calculatedMaxAgents);
-
       setMaxNumberOfAgents(calculatedMaxAgents);
     }
   }, [agents, agentsListRef]);
 
+  useEffect(() => {
+    if (selectedAgent) {
+      setDisplayAgentsList(
+        calculateShowingAgentsList(agents, selectedAgent, maxNumberOfAgents)
+      );
+    }
+  }, [agents, maxNumberOfAgents, selectedAgent]);
+
   return (
     <div className="agents-list" ref={agentsListRef}>
-      {agents.slice(0, maxNumberOfAgents).map((agent) => {
+      {displayAgentsList.map((agent) => {
         const isSelected = !!selectedAgent && selectedAgent.uuid === agent.uuid;
         return (
           <AgentCard
