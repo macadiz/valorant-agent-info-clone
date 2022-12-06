@@ -54,7 +54,6 @@ export const calculateShowingAgentsList = (
         leftList.push(newAgent);
       } else {
         newAgentIndex = currentAgentIndex + (j + 1);
-        console.log(newAgentIndex);
         if (newAgentIndex >= agents.length) {
           newAgent = agents[auxCounter];
           auxCounter++;
@@ -67,4 +66,27 @@ export const calculateShowingAgentsList = (
   }
 
   return [...leftList.reverse(), selectedAgent, ...rightList];
+};
+
+export const getNextAgent = (selectedAgent: TAgent, agents: TAgent[]) => {
+  const currentAgentIndex = agents.findIndex(
+    (agent) => agent.uuid === selectedAgent.uuid
+  );
+  if (currentAgentIndex === agents.length - 1) {
+    return agents[0];
+  } else {
+    return agents[currentAgentIndex + 1];
+  }
+};
+
+export const getPreviousAgent = (selectedAgent: TAgent, agents: TAgent[]) => {
+  const currentAgentIndex = agents.findIndex(
+    (agent) => agent.uuid === selectedAgent.uuid
+  );
+
+  if (currentAgentIndex === 0) {
+    return agents[agents.length - 1];
+  } else {
+    return agents[currentAgentIndex - 1];
+  }
 };

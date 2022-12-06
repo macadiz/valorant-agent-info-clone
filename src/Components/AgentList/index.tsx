@@ -1,7 +1,12 @@
-import { FC, useRef, useState, useEffect } from "react";
+import { FC, useRef, useState, useEffect, useCallback } from "react";
 import AgentCard from "../AgentCard";
 import { TAgent } from "../AgentInfo/types";
-import { calculateMaxAgents, calculateShowingAgentsList } from "./actions";
+import {
+  calculateMaxAgents,
+  calculateShowingAgentsList,
+  getNextAgent,
+  getPreviousAgent,
+} from "./actions";
 
 import "./agentsList.css";
 import { AgentListProps } from "./types";
@@ -16,6 +21,18 @@ const AgentList: FC<AgentListProps> = ({
   const [displayAgentsList, setDisplayAgentsList] = useState<TAgent[]>([]);
 
   const agentsListRef = useRef<null | HTMLDivElement>(null);
+
+  const setNextAgent = useCallback(() => {
+    if (selectedAgent && displayAgentsList.length > 0) {
+      onSelectAgent(getNextAgent(selectedAgent, agents));
+    }
+  }, [selectedAgent, onSelectAgent, agents, displayAgentsList]);
+
+  const setPreviousAgent = useCallback(() => {
+    if (selectedAgent && displayAgentsList.length > 0) {
+      onSelectAgent(getPreviousAgent(selectedAgent, agents));
+    }
+  }, [selectedAgent, onSelectAgent, agents, displayAgentsList]);
 
   useEffect(() => {
     if (agentsListRef.current) {
@@ -34,6 +51,23 @@ const AgentList: FC<AgentListProps> = ({
       );
     }
   }, [agents, maxNumberOfAgents, selectedAgent]);
+
+  useEffect(() => {
+    const onKeyDownEvent = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case "ArrowLeft": {
+          return setPreviousAgent();
+        }
+        case "ArrowRight": {
+          return setNextAgent();
+        }
+      }
+    };
+    window.addEventListener("keydown", onKeyDownEvent);
+    return () => {
+      window.removeEventListener("keydown", onKeyDownEvent);
+    };
+  }, [setPreviousAgent, setNextAgent]);
 
   return (
     <div className="agents-list" ref={agentsListRef}>
