@@ -9,4 +9,20 @@
   background-repeat: no-repeat;
   background-position-x: 50%;
   background-position-y: 30px;
+  z-index: 1;
+}
+
+.agent-info-agent-name-background {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-size: 63%;
+  background-repeat: no-repeat;
+  background-position-y: 35%;
+  background-position-x: 15%;
+  opacity: 0.1;
+  z-index: 0;
 }
