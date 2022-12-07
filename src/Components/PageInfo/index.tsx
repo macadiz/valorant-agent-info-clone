@@ -3,6 +3,7 @@ import { PageInfoProps } from "./types";
 
 import "./PageInfo.css";
 import Modal from "../Modal";
+import { constants } from "./constants";
 
 const PageInfo: FC<PageInfoProps> = ({ selectedAgent }) => {
   const firstGradientColor = `#${selectedAgent?.backgroundGradientColors[0]}`;
@@ -44,47 +45,15 @@ const PageInfo: FC<PageInfoProps> = ({ selectedAgent }) => {
         <div className="thanks-to-container">
           <h1>Tools I used to build this page</h1>
           <ul>
-            <li>
-              <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
-                React
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://fonts.google.com/specimen/Anton"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Google fonts - Anton font
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://fonts.google.com/icons"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Google fonts - Material Icons
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://valorant-api.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Valorant-API
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://icons8.com/icon/aUZxT3Erwill/valorant"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Valorant icon - Icons8
-              </a>
-            </li>
+            {constants.tools.map((tool) => {
+              return (
+                <li>
+                  <a href={tool.link} target="_blank" rel="noreferrer">
+                    {tool.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </Modal>
