@@ -2,12 +2,23 @@ name: Deploy to Github pages
 run-name: Deploy APP 🚀
 on: [push]
 jobs:
-  Deploy-app:
+  deploy-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout 🛠
+        uses: actions/checkout@v3
+      - name: Setting up node 🛠
+        uses: actions/setup-node@v3
         with:
           node-version: "16"
-      - run: npm install
-      - run: npm run deploy
+      - name: Setting up node 🛠
+        run: |
+          git config --global user.email "${{ secrets.USER_EMAIL }}"
+          git config --global user.name "${{ secrets.USER_NAME }}"
+          npm install
+      - name: Setting up 🛠
+        run: npm run build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
