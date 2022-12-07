@@ -1,4 +1,5 @@
 export const constants = {
+  gitUrl: 'https://github.com/macadiz',
   tools: [
     {
       name: "React",
@@ -21,4 +22,6 @@ export const constants = {
       link: "https://icons8.com/icon/aUZxT3Erwill/valorant",
     },
   ],
+  disclaimer:
+    "This is not an official site and it's not endorsed with Riot Games in any way. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.",
 };

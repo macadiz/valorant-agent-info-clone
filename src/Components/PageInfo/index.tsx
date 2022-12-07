@@ -30,16 +30,11 @@ const PageInfo: FC<PageInfoProps> = ({ selectedAgent }) => {
           this tools
         </button>{" "}
         by{" "}
-        <a
-          href="https://github.com/macadiz"
-          style={{ color: firstGradientColor }}
-        >
+        <a href={constants.gitUrl} style={{ color: firstGradientColor }}>
           @macadiz
         </a>
         <br />
-        This is not an official site and it's not endorsed with Riot Games in
-        any way. Riot Games, and all associated properties are trademarks or
-        registered trademarks of Riot Games, Inc.
+        {constants.disclaimer}
       </div>
       <Modal isOpen={isToolsModalOpen} onClose={onToolsModalClose}>
         <div className="thanks-to-container">
