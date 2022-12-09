@@ -33,10 +33,14 @@
   padding: 2px;
   border: 2px solid #90d8bd;
   position: relative;
-  background-color: rgba(108, 106, 110, 0.7);
+  background-color: rgba(108, 106, 110, 0.6);
 }
 
 .agent-button.selected .agent-button-image-wrapper {
+  background-color: rgba(108, 106, 110, 0.8);
+}
+
+.agent-button.selected:hover .agent-button-image-wrapper {
   background-color: rgba(108, 106, 110, 0.9);
 }
 
