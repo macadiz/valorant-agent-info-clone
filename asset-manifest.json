@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/valorant-agent-info-clone/static/css/main.003b73b6.css",
-    "main.js": "/valorant-agent-info-clone/static/js/main.ebd350aa.js",
+    "main.css": "/valorant-agent-info-clone/static/css/main.a1d92e0d.css",
+    "main.js": "/valorant-agent-info-clone/static/js/main.92f36ef1.js",
     "static/js/787.3d214a05.chunk.js": "/valorant-agent-info-clone/static/js/787.3d214a05.chunk.js",
     "index.html": "/valorant-agent-info-clone/index.html",
-    "main.003b73b6.css.map": "/valorant-agent-info-clone/static/css/main.003b73b6.css.map",
-    "main.ebd350aa.js.map": "/valorant-agent-info-clone/static/js/main.ebd350aa.js.map",
+    "main.a1d92e0d.css.map": "/valorant-agent-info-clone/static/css/main.a1d92e0d.css.map",
+    "main.92f36ef1.js.map": "/valorant-agent-info-clone/static/js/main.92f36ef1.js.map",
     "787.3d214a05.chunk.js.map": "/valorant-agent-info-clone/static/js/787.3d214a05.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.003b73b6.css",
-    "static/js/main.ebd350aa.js"
+    "static/css/main.a1d92e0d.css",
+    "static/js/main.92f36ef1.js"
   ]
 }
