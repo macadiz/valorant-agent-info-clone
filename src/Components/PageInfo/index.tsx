@@ -40,9 +40,9 @@ const PageInfo: FC<PageInfoProps> = ({ selectedAgent }) => {
         <div className="thanks-to-container">
           <h1>Tools I used to build this page</h1>
           <ul>
-            {constants.tools.map((tool) => {
+            {constants.tools.map((tool, index) => {
               return (
-                <li>
+                <li key={index}>
                   <a href={tool.link} target="_blank" rel="noreferrer">
                     {tool.name}
                   </a>
