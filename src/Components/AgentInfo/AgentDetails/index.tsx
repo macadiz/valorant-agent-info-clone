@@ -29,8 +29,6 @@ const AgentDetails: FC<AgentDetailsProps> = ({
     setSelectedAbility(ability);
   };
 
-  console.log(selectedAbility);
-
   return (
     <div className="agent-details">
       <h1 className="role-name">{role.displayName}</h1>
