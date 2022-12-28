@@ -24,13 +24,21 @@ const AgentList: FC<AgentListProps> = ({
 
   const setNextAgent = useCallback(() => {
     if (selectedAgent && displayAgentsList.length > 0) {
-      onSelectAgent(getNextAgent(selectedAgent, agents));
+      agentsListRef.current?.classList.add("next");
+      setTimeout(() => {
+        onSelectAgent(getNextAgent(selectedAgent, agents));
+        agentsListRef.current?.classList.remove("next");
+      }, 70);
     }
   }, [selectedAgent, onSelectAgent, agents, displayAgentsList]);
 
   const setPreviousAgent = useCallback(() => {
     if (selectedAgent && displayAgentsList.length > 0) {
-      onSelectAgent(getPreviousAgent(selectedAgent, agents));
+      agentsListRef.current?.classList.add("prev");
+      setTimeout(() => {
+        onSelectAgent(getPreviousAgent(selectedAgent, agents));
+        agentsListRef.current?.classList.remove("prev");
+      }, 70);
     }
   }, [selectedAgent, onSelectAgent, agents, displayAgentsList]);
 

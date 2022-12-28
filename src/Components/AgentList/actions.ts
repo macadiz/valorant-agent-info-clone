@@ -15,7 +15,8 @@ export const orderAgents = (agents: TAgent[]): TAgent[] => {
 export const calculateMaxAgents = (containerSize: number) => {
   const agentCardWidth = 108;
 
-  const calculatedAgents = Math.floor(containerSize / agentCardWidth);
+  // We add 2 agents additional so we can "scroll" animate the change
+  const calculatedAgents = Math.floor(containerSize / agentCardWidth) + 2;
 
   // We must always keep the selected agent to the center, thus we need always an odd quantity of agents
   return calculatedAgents % 2 === 0 ? calculatedAgents - 1 : calculatedAgents;

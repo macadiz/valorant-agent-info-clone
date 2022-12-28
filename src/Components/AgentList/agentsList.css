@@ -1,7 +1,33 @@
+@keyframes scrollNext {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-110px);
+  }
+}
+
+@keyframes scrollPrev {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(110px);
+  }
+}
+
 .agents-list {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: calc(100% - 135px);
   max-height: 100%;
   overflow: hidden;
+}
+
+.agents-list.next {
+  animation: scrollNext linear 0.1s;
+}
+
+.agents-list.prev {
+  animation: scrollPrev linear 0.1s;
 }
