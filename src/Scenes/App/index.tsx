@@ -13,13 +13,11 @@ const App = () => {
   const [selectedAgent, setSelectedAgent] = useState<TAgent | null>(null);
 
   useEffect(() => {
-    const setAgentsAsync = async () => {
-      const orderedAgents = orderAgents(await getAgents());
+    getAgents().then((agents) => {
+      const orderedAgents = orderAgents(agents);
       setAgents(orderedAgents);
       setSelectedAgent(orderedAgents[0]);
-    };
-
-    setAgentsAsync();
+    });
   }, []);
 
   const onSelectAgent = (agent: TAgent) => {
