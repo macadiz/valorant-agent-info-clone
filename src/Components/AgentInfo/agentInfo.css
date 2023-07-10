@@ -61,6 +61,7 @@
 }
 
 .agent-image {
+  pointer-events: none;
   filter: drop-shadow(0px 0px 500%);
   animation-name: agentOutline;
   animation-timing-function: ease;
