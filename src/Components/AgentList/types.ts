@@ -1,7 +1,7 @@
-import { TAgent } from "../AgentInfo/types"
+import { ViewAgent } from "../AgentInfo/types";
 
 export type AgentListProps = {
-    agents: TAgent[];
-    selectedAgent: TAgent | null;
-    onSelectAgent: (agent: TAgent) => void; 
-}
+  agents: ViewAgent[];
+  selectedAgent: ViewAgent | null;
+  onSelectAgent: (agent: ViewAgent) => void;
+};

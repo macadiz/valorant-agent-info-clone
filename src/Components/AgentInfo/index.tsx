@@ -26,11 +26,11 @@ const AgentInfo: FC<AgentInfoProps> = ({ agent }) => {
         role={agent.role}
       />
       {shouldAnimate && (
-        <div className="agent-info animate">
+        <div className="agent-info animate-left">
           <img
             alt={agent.displayName}
-            className="agent-image"
-            src={agent.fullPortrait}
+            className="agent-image-left"
+            src={URL.createObjectURL(agent.portraitBlob)}
             style={{
               height: "100%",
               color: `#${agent.backgroundGradientColors[0]}`,
@@ -41,7 +41,9 @@ const AgentInfo: FC<AgentInfoProps> = ({ agent }) => {
       <div
         className="agent-info-agent-name-background"
         style={{
-          backgroundImage: `url('${agent.background}')`,
+          backgroundImage: `url('${URL.createObjectURL(
+            agent.backgroundBlob
+          )}')`,
         }}
       />
     </>

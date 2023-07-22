@@ -1,6 +1,6 @@
 import { FC, useRef, useState, useEffect, useCallback } from "react";
 import AgentCard from "../AgentCard";
-import { TAgent } from "../AgentInfo/types";
+import { ViewAgent } from "../AgentInfo/types";
 import {
   calculateMaxAgents,
   calculateShowingAgentsList,
@@ -18,7 +18,7 @@ const AgentList: FC<AgentListProps> = ({
 }) => {
   const [maxNumberOfAgents, setMaxNumberOfAgents] = useState(0);
 
-  const [displayAgentsList, setDisplayAgentsList] = useState<TAgent[]>([]);
+  const [displayAgentsList, setDisplayAgentsList] = useState<ViewAgent[]>([]);
 
   const agentsListRef = useRef<null | HTMLDivElement>(null);
 

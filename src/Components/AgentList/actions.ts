@@ -1,6 +1,6 @@
 import API from "../../Shared/API";
 import constants from "../../Shared/constants";
-import { TAgent } from "../AgentInfo/types";
+import { TAgent, ViewAgent } from "../AgentInfo/types";
 
 export const getAgents = async () => {
   return await API.get<TAgent[]>(
@@ -23,8 +23,8 @@ export const calculateMaxAgents = (containerSize: number) => {
 };
 
 export const calculateShowingAgentsList = (
-  agents: TAgent[],
-  selectedAgent: TAgent,
+  agents: ViewAgent[],
+  selectedAgent: ViewAgent,
   maxAgents: number
 ) => {
   const numberOfAgentsExcludingSelected = maxAgents - 1;
@@ -69,7 +69,7 @@ export const calculateShowingAgentsList = (
   return [...leftList.reverse(), selectedAgent, ...rightList];
 };
 
-export const getNextAgent = (selectedAgent: TAgent, agents: TAgent[]) => {
+export const getNextAgent = (selectedAgent: ViewAgent, agents: ViewAgent[]) => {
   const currentAgentIndex = agents.findIndex(
     (agent) => agent.uuid === selectedAgent.uuid
   );
@@ -80,7 +80,10 @@ export const getNextAgent = (selectedAgent: TAgent, agents: TAgent[]) => {
   }
 };
 
-export const getPreviousAgent = (selectedAgent: TAgent, agents: TAgent[]) => {
+export const getPreviousAgent = (
+  selectedAgent: ViewAgent,
+  agents: ViewAgent[]
+) => {
   const currentAgentIndex = agents.findIndex(
     (agent) => agent.uuid === selectedAgent.uuid
   );

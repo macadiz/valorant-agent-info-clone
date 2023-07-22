@@ -6,7 +6,12 @@ export type Role = {
   assetPath: string;
 };
 
-export type AbilitySlot = "Ability1" | "Ability2" | "Grenade" | "Ultimate" | "Passive";
+export type AbilitySlot =
+  | "Ability1"
+  | "Ability2"
+  | "Grenade"
+  | "Ultimate"
+  | "Passive";
 
 export type Ability = {
   slot: AbilitySlot;
@@ -51,6 +56,11 @@ export type TAgent = {
   voiceLine: VoiceLine;
 };
 
+export type ViewAgent = TAgent & {
+  portraitBlob: Blob;
+  backgroundBlob: Blob;
+};
+
 export type AgentInfoProps = {
-  agent: TAgent;
+  agent: ViewAgent;
 };

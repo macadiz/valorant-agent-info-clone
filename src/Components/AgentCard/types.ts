@@ -1,7 +1,7 @@
-import { TAgent } from "../AgentInfo/types";
+import { ViewAgent } from "../AgentInfo/types";
 
 export type AgentCardProps = {
-    agent: TAgent;
-    onClick: (agent: TAgent) => void;
-    isSelected: boolean;
-}
+  agent: ViewAgent;
+  onClick: (agent: ViewAgent) => void;
+  isSelected: boolean;
+};

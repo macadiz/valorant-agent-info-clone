@@ -22,6 +22,30 @@
   }
 }
 
+@keyframes agentAppearLeft {
+  0% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes agentOutlineLeft {
+  0% {
+    filter: drop-shadow(200px 0px 1px);
+  }
+  50% {
+    filter: drop-shadow(-8px 0px 1px);
+  }
+  99% {
+    filter: drop-shadow(0px 0px 1px);
+  }
+  100% {
+    filter: drop-shadow(0px 0px 500%);
+  }
+}
+
 .agent-info {
   position: absolute;
   top: 0;
@@ -34,13 +58,18 @@
   background-position-x: 50%;
   background-position-y: 20%;
   z-index: 1;
-  animation-name: agentAppear;
   animation-timing-function: linear;
   animation-duration: 0.2s;
 }
 
 .agent-info.animate {
   animation-name: agentAppear;
+  animation-timing-function: linear;
+  animation-duration: 0.2s;
+}
+
+.agent-info.animate-left {
+  animation-name: agentAppearLeft;
   animation-timing-function: linear;
   animation-duration: 0.2s;
 }
@@ -60,10 +89,20 @@
   z-index: 0;
 }
 
+.agent-image-left {
+  pointer-events: none;
+  filter: drop-shadow(0px 0px 0px);
+  color: transparent;
+  animation-name: agentOutlineLeft;
+  animation-timing-function: ease-in-out;
+  animation-duration: 0.6s;
+}
+
 .agent-image {
   pointer-events: none;
-  filter: drop-shadow(0px 0px 500%);
+  filter: drop-shadow(0px 0px 0px);
+  color: transparent;
   animation-name: agentOutline;
-  animation-timing-function: ease;
+  animation-timing-function: ease-in-out;
   animation-duration: 0.6s;
 }
