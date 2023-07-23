@@ -12,14 +12,28 @@ export const orderAgents = (agents: TAgent[]): TAgent[] => {
   return agents.sort((a, b) => (a.displayName >= b.displayName ? 1 : -1));
 };
 
-export const calculateMaxAgents = (containerSize: number) => {
+export const calculateMaxAgentsData = (containerSize: number) => {
   const agentCardWidth = 108;
 
+  const maxAgentsInContainer = Math.floor(containerSize / agentCardWidth);
+
   // We add 2 agents additional so we can "scroll" animate the change
-  const calculatedAgents = Math.floor(containerSize / agentCardWidth) + 2;
+  let calculatedAgents = maxAgentsInContainer;
+
+  if (maxAgentsInContainer % 2 > 0) {
+    calculatedAgents += 2;
+  } else {
+    calculatedAgents += 1;
+  }
 
   // We must always keep the selected agent to the center, thus we need always an odd quantity of agents
-  return calculatedAgents % 2 === 0 ? calculatedAgents - 1 : calculatedAgents;
+  return {
+    calculatedAgents,
+    maxContainerWidth:
+      (maxAgentsInContainer % 2 === 0
+        ? maxAgentsInContainer - 1
+        : maxAgentsInContainer) * agentCardWidth,
+  };
 };
 
 export const calculateShowingAgentsList = (

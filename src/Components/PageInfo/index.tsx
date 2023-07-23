@@ -6,7 +6,9 @@ import Modal from "../Modal";
 import { constants } from "./constants";
 
 const PageInfo: FC<PageInfoProps> = ({ selectedAgent }) => {
-  const firstGradientColor = `#${selectedAgent?.backgroundGradientColors[0]}`;
+  const firstGradientColor = `#${
+    selectedAgent?.backgroundGradientColors[0] ?? "FFF"
+  }`;
 
   const [isToolsModalOpen, setIsToolsModalOpen] = useState(false);
 

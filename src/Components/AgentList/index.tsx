@@ -2,7 +2,7 @@ import { FC, useRef, useState, useEffect, useCallback } from "react";
 import AgentCard from "../AgentCard";
 import { ViewAgent } from "../AgentInfo/types";
 import {
-  calculateMaxAgents,
+  calculateMaxAgentsData,
   calculateShowingAgentsList,
   getNextAgent,
   getPreviousAgent,
@@ -44,11 +44,17 @@ const AgentList: FC<AgentListProps> = ({
 
   useEffect(() => {
     if (agentsListRef.current) {
-      const containerSize = agentsListRef.current.parentElement?.clientWidth;
+      const currentAgentList = agentsListRef.current;
 
-      const calculatedMaxAgents = calculateMaxAgents(containerSize ?? 0);
+      const containerSize = currentAgentList.clientWidth;
 
-      setMaxNumberOfAgents(calculatedMaxAgents);
+      const { calculatedAgents, maxContainerWidth } = calculateMaxAgentsData(
+        containerSize ?? 0
+      );
+
+      setMaxNumberOfAgents(calculatedAgents);
+
+      currentAgentList.style.maxWidth = `${maxContainerWidth}px`;
     }
   }, [agents, agentsListRef]);
 
