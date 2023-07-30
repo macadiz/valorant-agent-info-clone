@@ -2,6 +2,7 @@ import { FC, useRef, useState, useEffect, useCallback } from "react";
 import AgentCard from "../AgentCard";
 import { ViewAgent } from "../AgentInfo/types";
 import {
+  calculateAgentClickDirection,
   calculateMaxAgentsData,
   calculateShowingAgentsList,
   getNextAgent,
@@ -26,7 +27,7 @@ const AgentList: FC<AgentListProps> = ({
     if (selectedAgent && displayAgentsList.length > 0) {
       agentsListRef.current?.classList.add("next");
       setTimeout(() => {
-        onSelectAgent(getNextAgent(selectedAgent, agents));
+        onSelectAgent(getNextAgent(selectedAgent, agents), "left");
         agentsListRef.current?.classList.remove("next");
       }, 70);
     }
@@ -36,7 +37,7 @@ const AgentList: FC<AgentListProps> = ({
     if (selectedAgent && displayAgentsList.length > 0) {
       agentsListRef.current?.classList.add("prev");
       setTimeout(() => {
-        onSelectAgent(getPreviousAgent(selectedAgent, agents));
+        onSelectAgent(getPreviousAgent(selectedAgent, agents), "right");
         agentsListRef.current?.classList.remove("prev");
       }, 70);
     }
@@ -64,7 +65,8 @@ const AgentList: FC<AgentListProps> = ({
         calculateShowingAgentsList(agents, selectedAgent, maxNumberOfAgents)
       );
     }
-  }, [agents, maxNumberOfAgents, selectedAgent]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedAgent]);
 
   useEffect(() => {
     const onKeyDownEvent = (event: KeyboardEvent) => {
@@ -87,11 +89,18 @@ const AgentList: FC<AgentListProps> = ({
     <div className="agents-list" ref={agentsListRef}>
       {displayAgentsList.map((agent) => {
         const isSelected = !!selectedAgent && selectedAgent.uuid === agent.uuid;
+
+        const calculatedDirection = calculateAgentClickDirection(
+          displayAgentsList,
+          agent,
+          selectedAgent
+        );
+
         return (
           <AgentCard
             key={agent.uuid}
             agent={agent}
-            onClick={onSelectAgent}
+            onClick={(agent) => onSelectAgent(agent, calculatedDirection)}
             isSelected={isSelected}
           />
         );

@@ -108,3 +108,26 @@ export const getPreviousAgent = (
     return agents[currentAgentIndex - 1];
   }
 };
+
+export const calculateAgentClickDirection = (
+  agents: ViewAgent[],
+  currentAgent: ViewAgent,
+  selectedAgent: ViewAgent | null
+) => {
+  if (!selectedAgent) {
+    return "right";
+  }
+
+  const selectedIndex = agents.findIndex(
+    (agent) => agent.uuid === selectedAgent.uuid
+  );
+  const currentIndex = agents.findIndex(
+    (agent) => agent.uuid === currentAgent.uuid
+  );
+
+  if (selectedIndex > currentIndex) {
+    return "right";
+  }
+
+  return "left";
+};

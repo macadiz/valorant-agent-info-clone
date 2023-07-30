@@ -62,7 +62,7 @@
   animation-duration: 0.2s;
 }
 
-.agent-info.animate {
+.agent-info.animate-right {
   animation-name: agentAppear;
   animation-timing-function: linear;
   animation-duration: 0.2s;
@@ -98,7 +98,7 @@
   animation-duration: 0.6s;
 }
 
-.agent-image {
+.agent-image-right {
   pointer-events: none;
   filter: drop-shadow(0px 0px 0px);
   color: transparent;

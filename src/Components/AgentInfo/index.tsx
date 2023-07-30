@@ -3,13 +3,15 @@ import { AgentInfoProps } from "./types";
 
 import "./agentInfo.css";
 import AgentDetails from "./AgentDetails";
+import { useAgents } from "../../Context/AgentsContext";
 
 const AgentInfo: FC<AgentInfoProps> = ({ agent }) => {
   const [shouldAnimate, setShouldAnimate] = useState(true);
+  const { selectionDirection } = useAgents();
 
   useEffect(() => {
     setShouldAnimate(false);
-  }, [agent]);
+  }, [agent, selectionDirection]);
 
   useEffect(() => {
     if (!shouldAnimate) {
@@ -26,10 +28,10 @@ const AgentInfo: FC<AgentInfoProps> = ({ agent }) => {
         role={agent.role}
       />
       {shouldAnimate && (
-        <div className="agent-info animate-left">
+        <div className={`agent-info animate-${selectionDirection}`}>
           <img
             alt={agent.displayName}
-            className="agent-image-left"
+            className={`agent-image-${selectionDirection}`}
             src={URL.createObjectURL(agent.portraitBlob)}
             style={{
               height: "100%",
