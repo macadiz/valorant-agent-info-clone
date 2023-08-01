@@ -66,7 +66,7 @@ const AgentList: FC<AgentListProps> = ({
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedAgent]);
+  }, [selectedAgent, maxNumberOfAgents]);
 
   useEffect(() => {
     const onKeyDownEvent = (event: KeyboardEvent) => {
